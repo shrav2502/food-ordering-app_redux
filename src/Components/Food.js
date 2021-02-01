@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 
@@ -23,38 +22,46 @@ class Food extends React.Component {
 
     return (
       <Paper variant="outlined" square className="food">
-        <p className="food-name">{food.name}</p>
-        <div className="quantity">
-          <Button
-            onClick={() => {
-              this.props.decreaseQuantity(food.qty, food.id);
-            }}
-            variant="contained"
-            color="primary"
-          >
-            -
-          </Button>
-          <div className="style-qty">{food.quantity}</div>
-          <Button
-            onClick={() => {
-              this.props.increaseQuantity(food.qty, food.id);
-            }}
-            variant="contained"
-            color="primary"
-          >
-            +
-          </Button>
+        <div className="food-child">
+          <p className="food-name">{food.name}</p>
+          <img src={food.image} alt="food" className="images" />
+          <div className="price-qty-add">
+            <p>Rs. {food.price} /-</p>
+            <div className="quantity">
+              <Button
+                onClick={() => {
+                  this.props.decreaseQuantity(food.qty, food.id);
+                }}
+                variant="contained"
+                color="primary"
+              >
+                -
+              </Button>
+              <div className="style-qty">{food.quantity}</div>
+              <Button
+                onClick={() => {
+                  this.props.increaseQuantity(food.qty, food.id);
+                }}
+                variant="contained"
+                color="primary"
+              >
+                +
+              </Button>
+            </div>
+
+            <div style={{ marginTop: "10px" }}>
+              <button
+                onClick={() => {
+                  this.handleCart(food, food.id);
+                }}
+                className="addCartButton"
+                disabled={food.disable}
+              >
+                {food.value}
+              </button>
+            </div>
+          </div>
         </div>
-        <p>Rs. {food.price} /-</p>
-        <button
-          onClick={() => {
-            this.handleCart(food, food.id);
-          }}
-          className="addCartButton"
-          disabled={food.disable}
-        >
-          {food.value}
-        </button>
       </Paper>
     );
   }

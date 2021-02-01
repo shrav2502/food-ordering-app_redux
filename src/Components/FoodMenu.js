@@ -3,8 +3,9 @@ import Food from "./Food";
 
 function FoodMenu(props) {
   const quantity = props.quantity;
+  console.log(props.menu);
   return (
-    <div style={{ marginTop: "7rem" }}>
+    <div className="child foodmenu">
       {props.menu.map((menu, index) => (
         <Food key={index} {...props} menu={menu} quantity={quantity} />
       ))}

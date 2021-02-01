@@ -24,7 +24,9 @@ function OrderSummary(props) {
         </span>
       </div>
       <div className="order-btn">
-        <Button color="secondary">Place Order</Button>
+        <Button color="secondary" onClick={() => props.history.push("/login")}>
+          Place Order
+        </Button>
       </div>
     </Paper>
   );

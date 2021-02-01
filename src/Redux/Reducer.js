@@ -1,4 +1,4 @@
-import Menu from "../Data/Menu";
+import Menu from "../Components/Data/Menu";
 
 const initialStore = {
   menu: Menu,
