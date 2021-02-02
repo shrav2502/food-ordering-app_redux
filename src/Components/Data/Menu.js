@@ -4,7 +4,7 @@ const Menu = [
     name: "Cheese Garlic Noodles",
     price: 150,
     quantity: 0,
-    value: "Add to cart",
+    value: false,
     disable: false,
     image:
       "https://image.freepik.com/free-photo/schezwan-noodles-with-vegetables-plate_158388-20.jpg",
@@ -14,7 +14,7 @@ const Menu = [
     name: "Vegetable Pizza",
     price: 180,
     quantity: 0,
-    value: "Add to cart",
+    value: false,
     disable: false,
     image:
       "https://image.freepik.com/free-photo/mixed-pizza-with-various-ingridients_140725-3790.jpg",
@@ -24,7 +24,7 @@ const Menu = [
     name: "Walnut Brownie",
     price: 140,
     quantity: 0,
-    value: "Add to cart",
+    value: false,
     disable: false,
     image:
       "https://image.freepik.com/free-photo/chocolate-brownie-cake-piece-stack-plate-homemade-pastries_114579-583.jpg",
@@ -34,7 +34,7 @@ const Menu = [
     name: "Cheese Nachos",
     price: 140,
     quantity: 0,
-    value: "Add to cart",
+    value: false,
     disable: false,
     image:
       "https://image.freepik.com/free-photo/mexican-nacho-chips-salsa-dip-bowl_2829-14439.jpg",
@@ -44,7 +44,7 @@ const Menu = [
     name: "Aloo Burger",
     price: 160,
     quantity: 0,
-    value: "Add to cart",
+    value: false,
     disable: false,
     image:
       "https://image.freepik.com/free-photo/big-cheeseburger-french-fries_140725-2256.jpg",
@@ -54,7 +54,7 @@ const Menu = [
     name: "Garlic Bread",
     price: 150,
     quantity: 0,
-    value: "Add to cart",
+    value: false,
     disable: false,
     image:
       "https://image.freepik.com/free-photo/garlic-bread-plate_1339-69533.jpg",
@@ -64,7 +64,7 @@ const Menu = [
     name: "Vegetable Salad",
     price: 180,
     quantity: 0,
-    value: "Add to cart",
+    value: false,
     disable: false,
     image:
       "https://image.freepik.com/free-photo/greek-salad-with-fresh-tomato-cucumber-red-onion-basil-feta-cheese-black-olives-italian-herbs_2829-4480.jpg",
@@ -74,7 +74,7 @@ const Menu = [
     name: "Vegetable Spring Roll",
     price: 180,
     quantity: 0,
-    value: "Add to cart",
+    value: false,
     disable: false,
     image:
       "https://image.freepik.com/free-photo/fried-spring-rolls-cutting-board_1150-17010.jpg",
@@ -84,7 +84,7 @@ const Menu = [
     name: "Spinach Corn Sandwitch",
     price: 170,
     quantity: 0,
-    value: "Add to cart",
+    value: false,
     disable: false,
     image:
       "https://image.freepik.com/free-photo/small-sandwitches-with-turkey-tomatos-lettuce_78790-410.jpg",
@@ -94,7 +94,7 @@ const Menu = [
     name: "French Fries",
     price: 130,
     quantity: 0,
-    value: "Add to cart",
+    value: false,
     disable: false,
     image:
       "https://image.freepik.com/free-photo/crispy-french-fries-with-ketchup-mayonnaise_1150-26588.jpg",

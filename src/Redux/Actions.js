@@ -14,10 +14,9 @@ export function decreaseQuantity(qty, foodId) {
   };
 }
 
-export function addCart(items, id) {
+export function addCart(id) {
   return {
     type: "ADD_CART",
-    items,
     id,
   };
 }
@@ -49,6 +48,13 @@ export function calculateTotal() {
 export function removeFromCart(id) {
   return {
     type: "REMOVE_CART",
+    id,
+  };
+}
+
+export function makeQuantityZero(id) {
+  return {
+    type: "MAKE_ZERO",
     id,
   };
 }

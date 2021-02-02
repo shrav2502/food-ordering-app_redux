@@ -9,6 +9,11 @@ class Login extends React.Component {
           <h2 className="alignment">Login</h2>
           <form>
             <div className="credentials">
+              <label>Name</label>
+              <input type="text" placeholder="name" className="input" />
+            </div>
+            <br />
+            <div className="credentials">
               <label>Contact Number</label>
               <input
                 type="text"

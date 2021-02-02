@@ -3,7 +3,7 @@ import Food from "./Food";
 
 function FoodMenu(props) {
   const quantity = props.quantity;
-  console.log(props.menu);
+
   return (
     <div className="child foodmenu">
       {props.menu.map((menu, index) => (

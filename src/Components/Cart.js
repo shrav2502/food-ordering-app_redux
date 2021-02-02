@@ -12,17 +12,18 @@ class Cart extends React.Component {
     }
   };
 
-  handleDecreaseInQuantity = (qty, price, id, decrease) => {
+  handleDecreaseInQuantity = (qty, price, id) => {
     if (qty <= 1) {
       this.props.removeFromCart(id, price);
+      this.props.makeQuantityZero(id);
     } else {
-      decrease(qty, price, id);
+      this.props.decreaseQuantityWithPrice(qty, price, id);
+      this.props.decreaseQuantity(qty, id);
     }
   };
   render() {
     const cart = this.props.cart;
     const totalPrice = this.props.totalPrice;
-    const decrease = this.props.decreaseQuantityWithPrice;
     this.props.calculateTotal();
     return (
       <div style={{ marginTop: "7rem" }}>
@@ -39,8 +40,7 @@ class Cart extends React.Component {
                       this.handleDecreaseInQuantity(
                         item.quantity,
                         item.price,
-                        item.id,
-                        decrease
+                        item.id
                       );
                     }}
                     variant="contained"
@@ -56,6 +56,7 @@ class Cart extends React.Component {
                         item.price,
                         item.id
                       );
+                      this.props.increaseQuantity(item.quantity, item.id);
                     }}
                     variant="contained"
                     color="primary"

@@ -24,7 +24,9 @@ export default class Navbar extends Component {
           <Link to="/cart" style={{ textDecoration: "none" }}>
             <IconButton aria-label="cart">
               <StyledBadge
-                badgeContent={this.props.cart.length}
+                badgeContent={
+                  this.props.cart.length > 9 ? "9+" : this.props.cart.length
+                }
                 color="secondary"
               >
                 <ShoppingCartIcon />

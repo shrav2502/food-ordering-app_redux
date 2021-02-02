@@ -3,23 +3,30 @@ import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 
 class Food extends React.Component {
-  handleCart = (food, id) => {
+  handleCart = (food, id, value) => {
     if (food.quantity === 0) {
       alert("Enter right quantity");
     } else {
-      const items = {
-        id: food.id,
-        name: food.name,
-        price: food.price * food.quantity,
-        quantity: food.quantity,
-      };
-      this.props.addCart(items, id);
+      this.props.addCart(id);
+    }
+    if (value === true) {
+      this.props.removeFromCart(id);
+      this.props.makeQuantityZero(id);
+    }
+  };
+
+  handleDecreaseInQuantity = (qty, id, price) => {
+    if (qty <= 1) {
+      this.props.removeFromCart(id);
+      this.props.makeQuantityZero(id);
+    } else {
+      this.props.decreaseQuantity(qty, id);
+      this.props.decreaseQuantityWithPrice(qty, price, id);
     }
   };
 
   render() {
     const food = this.props.menu;
-
     return (
       <Paper variant="outlined" square className="food">
         <div className="food-child">
@@ -30,7 +37,11 @@ class Food extends React.Component {
             <div className="quantity">
               <Button
                 onClick={() => {
-                  this.props.decreaseQuantity(food.qty, food.id);
+                  this.handleDecreaseInQuantity(
+                    food.quantity,
+                    food.id,
+                    food.price
+                  );
                 }}
                 variant="contained"
                 color="primary"
@@ -40,7 +51,12 @@ class Food extends React.Component {
               <div className="style-qty">{food.quantity}</div>
               <Button
                 onClick={() => {
-                  this.props.increaseQuantity(food.qty, food.id);
+                  this.props.increaseQuantity(food.quantity, food.id);
+                  this.props.increaseQuantityWithPrice(
+                    food.quantity,
+                    food.price,
+                    food.id
+                  );
                 }}
                 variant="contained"
                 color="primary"
@@ -52,12 +68,12 @@ class Food extends React.Component {
             <div style={{ marginTop: "10px" }}>
               <button
                 onClick={() => {
-                  this.handleCart(food, food.id);
+                  this.handleCart(food, food.id, food.value);
                 }}
-                className="addCartButton"
-                disabled={food.disable}
+                className={food.value ? "remove" : "addCartButton"}
+                // disabled={food.disable}
               >
-                {food.value}
+                {food.value ? "Remove" : "Add to cart"}
               </button>
             </div>
           </div>

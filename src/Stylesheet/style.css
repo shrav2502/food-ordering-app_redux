@@ -58,6 +58,17 @@ body {
   font-size: 16px;
 }
 
+.remove {
+  color: white;
+  background-color: red;
+  width: 7rem;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
 .order-summary {
   max-width: 600px;
   margin: 10rem auto;

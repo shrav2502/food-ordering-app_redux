@@ -33,31 +33,50 @@ function rootReducer(state = initialStore, action) {
   }
 
   if (action.type === "ADD_CART") {
-    let item = action.items;
+    let shop;
+    state.menu.map((item) => {
+      if (item.id === action.id) {
+        item = {
+          ...item,
+          id: item.id,
+          name: item.name,
+          price: item.price * item.quantity,
+          quantity: item.quantity,
+        };
+        shop = item;
+      }
+      return null;
+    });
+
     let buttonValue = state.menu.map((item) => {
       if (item.id === action.id) {
-        item = { ...item, value: "Added", disable: true };
+        item = {
+          ...item,
+          value: true,
+          disable: true,
+        };
       }
       return item;
     });
 
-    return { ...state, cart: [...state.cart, item], menu: buttonValue };
+    return { ...state, cart: [...state.cart, shop], menu: buttonValue };
   }
 
   if (action.type === "INC_EDIT_CART") {
     let tempCart = state.cart.map((cartItem) => {
-      state.menu.map((item) => {
-        if (cartItem.id === action.id && item.id === action.id) {
+      state.menu.map((menuItem) => {
+        if (cartItem.id === action.id && menuItem.id === action.id) {
           cartItem = {
             ...cartItem,
             quantity: cartItem.quantity + 1,
-            price: cartItem.price + item.price,
+            price: cartItem.price + menuItem.price,
           };
         }
         return null;
       });
       return cartItem;
     });
+
     return { ...state, cart: tempCart };
   }
 
@@ -98,12 +117,26 @@ function rootReducer(state = initialStore, action) {
     });
     let buttonValue = state.menu.map((item) => {
       if (item.id === action.id) {
-        item = { ...item, value: "Add to cart", disable: false };
+        item = { ...item, value: false, disable: false };
       }
       return item;
     });
 
     return { ...state, cart: remove, menu: buttonValue };
+  }
+
+  if (action.type === "MAKE_ZERO") {
+    let zero = state.menu.map((item) => {
+      if (item.id === action.id) {
+        item = {
+          ...item,
+          quantity: 0,
+        };
+      }
+      return item;
+    });
+
+    return { ...state, menu: zero };
   }
 
   return state;
