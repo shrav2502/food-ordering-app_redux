@@ -50,23 +50,25 @@ body {
 
 .addCartButton {
   width: 7rem;
-  background-color: gold;
-  border: none;
+  border: 3px solid gold;
+  background-color: lightyellow;
   cursor: pointer;
-  padding: 10px;
+  padding: 5px;
   border-radius: 3px;
   font-size: 16px;
+  border-radius: 5px;
 }
 
 .remove {
   color: white;
-  background-color: red;
+  background-color: lightcoral;
   width: 7rem;
   border: none;
   cursor: pointer;
-  padding: 10px;
+  padding: 7px;
   border-radius: 3px;
   font-size: 16px;
+  border-radius: 5px;
 }
 
 .order-summary {
@@ -166,7 +168,7 @@ body {
 }
 
 .login-child {
-  height: 300px;
+  height: 350px;
   width: 550px;
   border: 1px solid #ddd;
   padding: 20px;

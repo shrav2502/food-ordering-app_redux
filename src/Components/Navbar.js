@@ -6,6 +6,16 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { withStyles } from "@material-ui/core/styles";
 
 export default class Navbar extends Component {
+  state = {
+    user: "",
+  };
+  componentDidMount() {
+    const userName = localStorage.getItem("name");
+    this.setState({
+      user: userName,
+    });
+    console.log("name", localStorage.getItem("name"));
+  }
   render() {
     const StyledBadge = withStyles((theme) => ({
       badge: {
@@ -21,6 +31,7 @@ export default class Navbar extends Component {
           <Link to="/" style={{ textDecoration: "none", color: "#123174" }}>
             <h2>FoodZone</h2>
           </Link>
+          {this.state.user !== null ? <h3>Hello, {this.state.user}</h3> : null}
           <Link to="/cart" style={{ textDecoration: "none" }}>
             <IconButton aria-label="cart">
               <StyledBadge

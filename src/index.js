@@ -3,12 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./Components/App";
 import { createStore } from "redux";
-import rootReducer from "./Redux/Reducer";
+import RootReducer from "./Redux/RootReducer";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import Login from "./Components/Login";
+import Test from "./Components/Test";
 
-const store = createStore(rootReducer);
+const store = createStore(RootReducer);
 
 ReactDOM.render(
   <React.StrictMode>
